@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Application</title>
+</head>
+<body>
+       <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="col-sm-12 text-center">
+                    <h1>Weather Forecast</h1>
+                    <div class="input-group mt-5"><!--"form-control" -->
+                        <input class="form-control" type="text" #userinput placeholder="Enter city name" >
+                        <div class="input-group-append">
+                            <button class="button1"  (click)="getCity(userinput.value)">Search</button>
+                    <!--ng-model="new delhi" ng-click="getCity(new delhi)"
+                    <button  class="button1"  ng-model="paris"  ngclick="getCity('paris')">Paris</button> 
+                    <button class="button2" ng-model="chennai" ng-click="getCity(chennai)" >Chennai</button> 
+                   <button class="button3" ng-model="city" ng-click="getCity(city)" >Varnasi</button> 
+                  <button class="button4" ng-model="city" ng-click="getCity(city)">Kanpur</button> 
+                  <button class="button5"ng-model="city" ng-click="getCity(city)">Kolkata</button>-->
+                </div>
+                </div>
+               </div>
+               
+               <h6>Weather in {{weather.name}},{{weather.sys.country}}</h6>
+               
+               <table class="table table-light table-stripped table-bordered table-sm">
+                   <tbody>
+                    <tr>
+                        <td>Description</td><td>{{weather.weather[0].description}}</td>
+                    </tr>
+                       <tr>
+                           <td>Humidity</td><td>{{weather.main.humidity}}%</td>
+                       </tr>
+                       <tr>
+                        <td>Pressure</td><td>{{weather.main.pressure}} hpa</td>
+                       </tr>
+                       <tr>
+                        <td>Temperature</td><td>{{weather.main.temp}}° </td>
+                       </tr>
+                       <tr>
+                        <td>Sunrise</td><td>{{weather.sys.sunrise*1000|date:'H:mm'}}</td>
+                    </tr>
+                    <tr>
+                        <td>Sunset</td><td>{{weather.sys.sunset*1000|date:'H:mm'}}</td>
+                    </tr>
+                    <tr>
+                        <td>Geo cords</td><td>[{{weather.coord.lat}},{{weather.coord.lon}}]</td>
+                    </tr>
+                   </tbody>
+               </table>
+               
+            </div>
+        </div>
+</body>
+</html>
+
+
